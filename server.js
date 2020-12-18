@@ -17,11 +17,9 @@ const limiter = rateLimit({
 	max: 10, // limit each IP to 10 requests per windowMs
 });
 
-app.use(
-	'/api/parking-lots',
-	require('./controllers/parking-lot.controller'),
-	limiter
-);
+app.use(limiter);
+
+app.use('/api/parking-lots', require('./controllers/parking-lot.controller'));
 
 if (
 	process.env.NODE_ENV === 'production' ||
