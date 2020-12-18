@@ -7,8 +7,16 @@ router.post('/', createParkingLot);
 router.post('/park', parkCar);
 router.post('/unpark', unparkCar);
 router.get('/info', getSlotOrCarNumber);
+router.get('/', getAllDetails);
 
 module.exports = router;
+
+function getAllDetails(req, res, next) {
+	parkingLotService
+		.getAllDetails()
+		.then((resp) => res.json(resp))
+		.catch(next);
+}
 
 function createParkingLot(req, res, next) {
 	if (req.body) {

@@ -1,5 +1,11 @@
 const db = require('../db');
 
+// demo endpoint to check rate limiter
+const getAllDetails = async () => {
+	let parkingLots = await db.ParkingLot.find();
+	return parkingLots;
+};
+
 const createParkingLot = async (noOfLot) => {
 	let maxSize = parseInt(noOfLot);
 	let availableSlots = [];
@@ -85,6 +91,7 @@ const getSlotNumberFromCar = async (carNumber) => {
 };
 
 module.exports = {
+	getAllDetails,
 	createParkingLot,
 	park,
 	unpark,
