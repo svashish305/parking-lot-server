@@ -1,0 +1,4 @@
+{
+  "connectionString": "mongodb://localhost/parking-lot-db",
+  "secret": "HERE IS THE SECRET FOR PARKING LOT SERVER"
+}
